@@ -1,0 +1,8 @@
+{
+  "name": "AppPost",
+  "app_id": "670e73a3",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
