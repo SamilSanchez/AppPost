@@ -11,17 +11,23 @@ import { PostService } from '../../../../app/services/post.services';
 })
 export class VerPostComponent {
   post: object = {};
+  comentarios: any;
 
-  constructor(
+  constructor ( 
     public navParams: NavParams,
-    private _post: PostService) {
-    console.log(navParams);
+    private _post: PostService
+  ) {
     const idPost = navParams.data['id'];
-    // OBTIENE LA LISTA DE POST
+    // OBTENER UN POST
     this._post.obtenerPost( idPost, (post) => {
       this.post = post;
-      console.log(post);
-  }, (err) => {});
+    }, (err) => {});
+
+    // OBTENER LOS COMENTARIOS DE UN POST
+    this._post.obtenerComentariosPost( idPost, (comentarios) => {
+      this.comentarios = comentarios;
+      console.log(comentarios);
+    }, (err) => {});
     
   }
 

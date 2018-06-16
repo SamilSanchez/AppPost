@@ -7,24 +7,39 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>postUnitario</ion-title>
+    <ion-title>Ver Post Nro {{ post.id }} </ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <h3> Post</h3>
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="img/marty-avatar.png">
+        </ion-avatar>
+        <h2>Usuario: {{ post.userId }} </h2>
+        <p>Número de Post: {{ post.id }}</p>
+      </ion-item>
+      <ion-card-content>
+          <p> {{ post.title }} </p>
+          <p>{{ post.body }}</p>  
+      </ion-card-content>      
+    </ion-card>
+    <h3> Comentarios</h3>
+  <ion-card *ngFor="let com of comentarios">
     <ion-item>
       <ion-avatar item-start>
-          <ion-icon name="eye"></ion-icon><br><br>
+        <img src="img/marty-avatar.png">
       </ion-avatar>
-      <h2>Usuario: {{ post.userId }} </h2>
-      <p>Número de Post: {{ post.id }}</p>
+      <p>Nro: {{ com.id }}</p>
+      <p>Nombre: {{ com.name }}</p>
+      <p>Email: {{ com.email }}</p>
     </ion-item>
-    <h3>{{ post.title }} </h3>
-
     <ion-card-content>
-      <p>{{ post.body }}</p>
+      <p>{{ com.body }}</p>
     </ion-card-content>
-
+  </ion-card>
 </ion-content>

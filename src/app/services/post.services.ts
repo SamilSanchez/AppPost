@@ -21,7 +21,6 @@ export class PostService {
     obtenerPosts (success, reject) {
         this._http.get(this._global.API_URL + '/posts')
         .subscribe( lista => {
-            console.log('lista', lista);
             return success(lista)
         }, err => {
             console.log('Error', err);
@@ -32,11 +31,20 @@ export class PostService {
     obtenerPost (id, success, reject) {
         this._http.get(this._global.API_URL + '/posts/' + id )
         .subscribe( post => {
-            console.log('post', post);
             return success(post)
         }, err => {
             console.log('Error', err);
             return reject(err);              
         });
     }
+    obtenerComentariosPost (id, success, reject) {
+        this._http.get(this._global.API_URL + '/posts/' + id + '/comments')
+        .subscribe( comentarios => {
+            return success(comentarios)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
+    }
 }
+

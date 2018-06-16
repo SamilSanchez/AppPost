@@ -16,11 +16,13 @@ import { VerPostComponent } from '../consultar/uno/post-unitario';
 
 export class ListaComponent implements OnInit {
     lista: Post[];
+    limitePost: number;
 
     constructor(
         private _post: PostService,
         private NavCtrl: NavController
     ) {
+        this.limitePost = 10;
         // OBTIENE LA LISTA DE POST
         this._post.obtenerPosts( (posts) => {
             this.lista = posts;
@@ -28,6 +30,15 @@ export class ListaComponent implements OnInit {
         }, (err) => {});
         
      }
+
+     doInfinite(infiniteScroll) {
+        console.log('Begin async operation');
+        setTimeout(() => {
+          this.limitePost = this.limitePost + 10      
+          console.log('Async operation has ended');
+          infiniteScroll.complete();
+        }, 800);
+      }
 
     ngOnInit() { }
 
