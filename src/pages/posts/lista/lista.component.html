@@ -1,34 +1,27 @@
-<ion-header>
+      <ion-header>
         <ion-navbar>
           <ion-title>Lista de Posts</ion-title>
         </ion-navbar>
       </ion-header>
-
-      <ion-card>
-        <ion-card-header>
-          <h3> Items</h3>
-        </ion-card-header>
-        <ion-card-content>
-          
-        </ion-card-content>
-      </ion-card>
       
       <ion-content padding>
-        <ion-list>
+          <!-- <ion-searchbar
+          [(ngModel)]="myInput"
+          [showCancelButton]="shouldShowCancel"
+          (ionInput)="onInput($event)"
+          (ionCancel)="onCancel($event)">
+          </ion-searchbar> -->
           <ion-list-header>Lista de Posts</ion-list-header>
-          <ion-item>
-              "userId": 1
-          </ion-item>
-          <ion-item>
-              "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+          <ion-list *ngFor="let post of lista | limitTo : 20;">
+            <ion-item>
+              <ion-avatar item-start>
+                <ion-icon style="cursor: pointer;" (click)= "verPost(post.userId)" name="eye"></ion-icon><br><br>
+                <ion-icon style="cursor: pointer;" (click)= "editarPost(post.userId)" name="clipboard"></ion-icon>
+              </ion-avatar>
+              <h2> <b>Usuario:</b>  {{ post.userId  }}  </h2>
+              <h3> <b>Titulo: </b> {{ post.title }}</h3>
+              <p> {{ post.body }}</p>
             </ion-item>
-          <ion-item>
-              "body": Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quod odio co
-          </ion-item>
-          <ion-item>
-            <ion-icon name="ionic" item-start></ion-icon>
-            @ionicframework
-          </ion-item>
-        </ion-list>
+          </ion-list>
       </ion-content>
       

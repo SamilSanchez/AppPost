@@ -13,6 +13,11 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ListaComponent } from '../pages/posts/lista/lista.component';
 import { NuevoPostComponent } from '../pages/posts/nuevo/nuevoPost.component';
 import { EliminarPostComponent } from '../pages/posts/eliminar/eliminarpost';
+import { VerPostComponent } from '../pages/posts/consultar/uno/post-unitario';
+
+
+// PIPES
+import { TruncatePipe } from '../app/pipes/util.pipes';
 
 // SEVICIOS DE LA APLICACION
 import { PostService } from '../app/services/post.services';
@@ -28,7 +33,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ListaComponent,
     NuevoPostComponent,
-    EliminarPostComponent
+    EliminarPostComponent,
+    VerPostComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ListaComponent,
     NuevoPostComponent,
-    EliminarPostComponent
+    EliminarPostComponent,
+    VerPostComponent
   ],
   providers: [
     StatusBar,

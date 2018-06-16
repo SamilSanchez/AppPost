@@ -18,7 +18,7 @@ export class PostService {
         this._global = new Global();        
     }
 
-    obtenerlista (success, reject) {
+    obtenerPosts (success, reject) {
         this._http.get(this._global.API_URL + '/posts')
         .subscribe( lista => {
             console.log('lista', lista);
@@ -27,6 +27,16 @@ export class PostService {
             console.log('Error', err);
             return reject(err);              
         });
+    }
 
+    obtenerPost (id, success, reject) {
+        this._http.get(this._global.API_URL + '/posts/' + id )
+        .subscribe( post => {
+            console.log('post', post);
+            return success(post)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
     }
 }
