@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Editar Post
+        </ion-title>
+    </ion-navbar>
+    </ion-header>
+    
+    <ion-content padding>
+      <ion-list>
+          <ion-item>
+            <ion-label stacked>Id de Usuario</ion-label>
+            <ion-input aria-required="true" [(ngModel)]="post.userId" type="text"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+              <ion-label stacked> Titulo </ion-label>
+              <ion-input aria-required="true" [(ngModel)]="post.title" type="text"></ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label stacked>Mensaje</ion-label>
+              <ion-input aria-required="true" [(ngModel)]="post.body" type="text"></ion-input>
+            </ion-item>
+            <br><br>
+            <button padding (click) = "eliminarPost(post.id)" ion-button> Confirmar Eliminacion</button>
+      </ion-list>
+    </ion-content>
+          

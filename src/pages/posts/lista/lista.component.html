@@ -16,8 +16,10 @@
               <ion-list *ngFor="let post of lista | limitTo : limitePost;">
                   <ion-item>
                     <ion-avatar item-start>
-                      <ion-icon style="cursor: pointer;" (click)= "verPost(post.userId)" name="eye"></ion-icon><br><br>
-                      <ion-icon style="cursor: pointer;" (click)= "editarPost(post.userId)" name="clipboard"></ion-icon>
+                      <ion-icon style="cursor: pointer;" (click)= "verPost(post.id)" name="eye"></ion-icon><br><br>
+                      <ion-icon style="cursor: pointer;" (click)= "editarPost(post.id)" name="clipboard"></ion-icon>
+                      <ion-icon style=" cursor: pointer;position: relative; bottom: 17px; left: 4px;"
+                       (click)= "eliminarPost(post.id)" name="close-circle"></ion-icon>
                     </ion-avatar>
                     <h2> <b>Usuario:</b>  {{ post.userId  }}  </h2>
                     <h3> <b>Titulo: </b> {{ post.title }}</h3>

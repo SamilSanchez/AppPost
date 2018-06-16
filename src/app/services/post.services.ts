@@ -65,5 +65,24 @@ export class PostService {
             return reject(err);              
         });
     }
-}
 
+    guardarPost (datos, idPost, success, reject) {
+        this._http.put(this._global.API_URL + '/posts/' + idPost, datos)
+        .subscribe( postEditado => {
+            return success(postEditado)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
+    }
+
+    eliminarPost (idPost, success, reject) {
+        this._http.delete(this._global.API_URL + '/posts/' + idPost)
+        .subscribe( postEditado => {
+            return success(postEditado)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
+    }
+}

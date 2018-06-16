@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../../app/services/post.services';
 
+// IMPORTANDO MODULO PARA LA GENERAR MENSAJE DE ALERTA
 import { AlertController } from 'ionic-angular';
 
 @Component({
@@ -42,7 +43,7 @@ export class NuevoPostComponent implements OnInit {
       mostrarAlertaFallida() {
         const alert = this.alertCtrl.create({
           title: 'Fallida !!!',
-          subTitle: 'Nos pudo agrgar el post intente nuevamente',
+          subTitle: 'Nos pudo agregar el post intente nuevamente',
           buttons: ['Aceptar']
         });
         alert.present();

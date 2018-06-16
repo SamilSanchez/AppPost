@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ModalController } from 'ionic-angular';
 
 // Importamos los servicios y modulos que necesitemos 
 import { PostService } from '../../../app/services/post.services';
@@ -7,6 +8,11 @@ import { Post } from '../../../app/app.interfaces';
 
 // Otras Paginas 
 import { VerPostComponent } from '../consultar/uno/post-unitario';
+import { EditarPostComponent } from '../editar/editar-post';
+
+// MODALES
+import { ModalEliminarPostComponent } from '../../modals/modal-eliminar-post';
+
 
 
 @Component({
@@ -21,7 +27,8 @@ export class ListaComponent implements OnInit {
 
     constructor(
         private _post: PostService,
-        private NavCtrl: NavController
+        private NavCtrl: NavController,
+        public modalCtrl: ModalController
     ) {
         // LIMITE DE POST A MOSTRAR POR SCROLL
         this.limitePost = 10;
@@ -48,13 +55,20 @@ export class ListaComponent implements OnInit {
     // PERMITE VER UN POST DETERMINADO
     verPost (id) {
         console.log('id', id);
-        // Cambio a la viata para ver el post
-        this.NavCtrl.push( VerPostComponent,{ id: id } )
+        // Cambio a la vista para ver el post
+        this.NavCtrl.push( VerPostComponent, { id: id  } )
     }
     // PERMITE EDITAR UN POST ESPECIFICO
     editarPost (id) {
         console.log('id', id);
-        
+         // Cambio a la vista para editar el post
+         this.NavCtrl.push( EditarPostComponent,{ id: id } )
+    }
+    // PERMITE ELIMINAT UN POST ESPECIFICO 
+    eliminarPost (id) {
+        console.log('id', id);
+        const modal = this.modalCtrl.create(ModalEliminarPostComponent, { id: id });
+        modal.present();
     }
     // PERMITE FILTRAR POST POR ID DE USUARIO
     onInput (event){

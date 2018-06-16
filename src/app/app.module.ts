@@ -12,9 +12,11 @@ import { MyApp } from './app.component';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ListaComponent } from '../pages/posts/lista/lista.component';
 import { NuevoPostComponent } from '../pages/posts/nuevo/nuevoPost.component';
-import { EliminarPostComponent } from '../pages/posts/eliminar/eliminarpost';
 import { VerPostComponent } from '../pages/posts/consultar/uno/post-unitario';
+import { EditarPostComponent } from '../pages/posts/editar/editar-post';
 
+// MODALES
+import { ModalEliminarPostComponent } from '../pages/modals/modal-eliminar-post';
 
 // PIPES
 import { TruncatePipe } from '../app/pipes/util.pipes';
@@ -33,8 +35,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ListaComponent,
     NuevoPostComponent,
-    EliminarPostComponent,
     VerPostComponent,
+    EditarPostComponent,
+    ModalEliminarPostComponent,
     TruncatePipe
   ],
   imports: [
@@ -48,7 +51,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ListaComponent,
     NuevoPostComponent,
-    EliminarPostComponent,
+    EditarPostComponent,
+    ModalEliminarPostComponent,
     VerPostComponent
   ],
   providers: [
