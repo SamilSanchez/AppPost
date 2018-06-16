@@ -36,7 +36,6 @@ export class ModalEliminarPostComponent {
         title: post.title,
         body: post.body
       }
-      console.log( typeof this.post);
     }, (err) => {});
     
   }
@@ -48,7 +47,6 @@ export class ModalEliminarPostComponent {
   eliminarPost () {
      // SOBRESCRIBIR LO DATOS DE UN POST
      this._post.eliminarPost(this.idPost, (post) => {
-      console.log(post);
       this.mostrarAlertaExitosa();
     }, (err) => {
       console.log('Error :: ' , err);
@@ -64,7 +62,7 @@ export class ModalEliminarPostComponent {
       buttons: ['Aceptar']
     });
     alert.present();
-     this.NavCtrl.push( ListaComponent);
+     //this.NavCtrl.push( ListaComponent);
   }
 
   mostrarAlertaFallida() {

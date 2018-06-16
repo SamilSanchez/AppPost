@@ -32,11 +32,6 @@ export class EditarPostComponent {
         title: post.title,
         body: post.body
       }
-
-          
-   
-       = post;
-      console.log( typeof this.post);
     }, (err) => {});
     
   }
@@ -49,7 +44,6 @@ export class EditarPostComponent {
      // SOBRESCRIBIR LO DATOS DE UN POST
      this._post.guardarPost( this.post, this.idPost, (post) => {
       this.postGuadado = post;
-      console.log(post);
       this.mostrarAlertaExitosa();
     }, (err) => {
       console.log('Errror :: ' , err);

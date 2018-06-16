@@ -35,17 +35,14 @@ export class ListaComponent implements OnInit {
         // OBTIENE LA LISTA DE POST
         this._post.obtenerPosts( (posts) => {
             this.lista = posts;
-            console.log(posts);
         }, (err) => {});
         
      }
 
      // FUNCION QUE DE ENCARGA DEL SCROLL AUTOMTICO
      doInfinite(infiniteScroll) {
-        console.log('Begin async operation');
         setTimeout(() => {
           this.limitePost = this.limitePost + 10      
-          console.log('Async operation has ended');
           infiniteScroll.complete();
         }, 800);
       }
@@ -54,29 +51,24 @@ export class ListaComponent implements OnInit {
 
     // PERMITE VER UN POST DETERMINADO
     verPost (id) {
-        console.log('id', id);
         // Cambio a la vista para ver el post
         this.NavCtrl.push( VerPostComponent, { id: id  } )
     }
     // PERMITE EDITAR UN POST ESPECIFICO
     editarPost (id) {
-        console.log('id', id);
          // Cambio a la vista para editar el post
          this.NavCtrl.push( EditarPostComponent,{ id: id } )
     }
     // PERMITE ELIMINAT UN POST ESPECIFICO 
     eliminarPost (id) {
-        console.log('id', id);
         const modal = this.modalCtrl.create(ModalEliminarPostComponent, { id: id });
         modal.present();
     }
     // PERMITE FILTRAR POST POR ID DE USUARIO
     onInput (event){
-        console.log(this.busqueda);
         if (this.busqueda) {
             this._post.obtenerPostsPorUsuario( this.busqueda, (postsUsuario) => {
                 this.lista = postsUsuario;
-                console.log(postsUsuario);
             }, (err) => {});
         }       
     }

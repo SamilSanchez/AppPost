@@ -26,7 +26,6 @@ export class VerPostComponent {
     // OBTENER LOS COMENTARIOS DE UN POST
     this._post.obtenerComentariosPost( idPost, (comentarios) => {
       this.comentarios = comentarios;
-      console.log(comentarios);
     }, (err) => {});
     
   }

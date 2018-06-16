@@ -24,7 +24,6 @@ export class NuevoPostComponent implements OnInit {
          this._post.agregarPost(datos, (nuevoPost) => {
             this.nuevoPost= nuevoPost;
             this.datos = {};
-            console.log(nuevoPost);
             this.mostrarAlertaExitosa();
             }, (err) => {
                 this.mostrarAlertaFallida();
