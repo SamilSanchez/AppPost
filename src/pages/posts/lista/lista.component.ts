@@ -15,13 +15,15 @@ import { VerPostComponent } from '../consultar/uno/post-unitario';
 })
 
 export class ListaComponent implements OnInit {
-    lista: Post[];
+    lista: Post[] = [];
     limitePost: number;
+    busqueda;
 
     constructor(
         private _post: PostService,
         private NavCtrl: NavController
     ) {
+        // LIMITE DE POST A MOSTRAR POR SCROLL
         this.limitePost = 10;
         // OBTIENE LA LISTA DE POST
         this._post.obtenerPosts( (posts) => {
@@ -31,6 +33,7 @@ export class ListaComponent implements OnInit {
         
      }
 
+     // FUNCION QUE DE ENCARGA DEL SCROLL AUTOMTICO
      doInfinite(infiniteScroll) {
         console.log('Begin async operation');
         setTimeout(() => {
@@ -42,14 +45,25 @@ export class ListaComponent implements OnInit {
 
     ngOnInit() { }
 
+    // PERMITE VER UN POST DETERMINADO
     verPost (id) {
         console.log('id', id);
         // Cambio a la viata para ver el post
         this.NavCtrl.push( VerPostComponent,{ id: id } )
     }
+    // PERMITE EDITAR UN POST ESPECIFICO
     editarPost (id) {
         console.log('id', id);
         
     }
-
+    // PERMITE FILTRAR POST POR ID DE USUARIO
+    onInput (event){
+        console.log(this.busqueda);
+        if (this.busqueda) {
+            this._post.obtenerPostsPorUsuario( this.busqueda, (postsUsuario) => {
+                this.lista = postsUsuario;
+                console.log(postsUsuario);
+            }, (err) => {});
+        }       
+    }
 }

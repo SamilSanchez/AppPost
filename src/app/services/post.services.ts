@@ -46,5 +46,14 @@ export class PostService {
             return reject(err);              
         });
     }
+    obtenerPostsPorUsuario (idUser, success, reject) {
+        this._http.get(this._global.API_URL + '/posts/?userId=' + idUser )
+        .subscribe( comentarios => {
+            return success(comentarios)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
+    }
 }
 
