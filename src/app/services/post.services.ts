@@ -55,5 +55,15 @@ export class PostService {
             return reject(err);              
         });
     }
+
+    agregarPost (datos, success, reject) {
+        this._http.post(this._global.API_URL + '/posts', datos)
+        .subscribe( nuevoPost => {
+            return success(nuevoPost)
+        }, err => {
+            console.log('Error', err);
+            return reject(err);              
+        });
+    }
 }
 
